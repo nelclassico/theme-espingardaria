@@ -17,7 +17,7 @@ Este tema foi desenvolvido exclusivamente para Espingardaria, seguindo o design 
 
 /* Cores principais */
 :root {
-    --primary-color: #ff6600;
+    --primary-color: #ff6600 !important;
     --secondary-color: #222222;
     --text-color: #333333;
     --light-color: #f8f9fa;
@@ -154,7 +154,7 @@ img {
 }
 
 .site-branding {
-    padding: 1rem 0;
+    padding: 0;
 }
 
 .site-logo {
@@ -286,12 +286,21 @@ img {
 }
 
 .carousel-item {
-    height: 600px;
+    height: 800px;
     background-size: cover;
     background-position: center;
     position: relative;
 }
 
+#imageGalleryCarousel .carousel-item:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgb(0 0 0 / 21%) 0%, rgb(0 0 0 / 30%) 100%) !important;
+}
 .carousel-item:before {
     content: '';
     position: absolute;
@@ -299,7 +308,7 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to right, rgb(0 0 0 / 18%) 0%, rgb(0 0 0 / 28%) 100%);
 }
 
 .carousel-caption {
@@ -312,15 +321,15 @@ img {
 }
 
 .carousel-caption h1 {
-    font-size: 8rem;
+    font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
     text-transform: uppercase;
 }
 
 .carousel-caption .subtitle {
-    font-size: 2.5rem;
-    margin-bottom: 0;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .carousel-caption .price {
@@ -357,6 +366,7 @@ img {
 /* Categorias */
 .categories-section {
     padding: 4rem 0;
+    background-color: #fff;
 }
 
 .category-item {
@@ -371,16 +381,20 @@ img {
 
 .category-item img {
     width: 100%;
-    height: 150px;
+    height: 100%;
     object-fit: cover;
     margin-bottom: 1rem;
     border-radius: 5px;
+    background: #ebebeb;
+    padding: 10px;
+    transition: transform 0.3s ease; /* Transição apenas para o transform da imagem */
 }
 
 .category-item h3 {
     font-size: 1.25rem;
     margin-bottom: 0;
 }
+/* Contêiner para a imagem com overflow hidden para manter o tamanho do quadro */
 
 /* Produtos */
 .featured-products-section,
@@ -485,12 +499,13 @@ img {
 /* Seções promocionais */
 .training-section,
 .ammo-section {
-    padding: 6rem 0;
+    padding: 4rem 0;
     background-size: cover;
     background-position: center;
     position: relative;
     color: #fff;
 }
+
 
 .training-section:before,
 .ammo-section:before {
@@ -524,21 +539,34 @@ img {
     margin-bottom: 2rem;
 }
 
+.destaque_1-section, .destaque_2-section{
+    padding: 6em;
+    color: #fff;
+    background-size: cover;
+} 
+
+
+
 /* Compre em qualquer lugar */
+
+section.shop-anywhere-section {
+    background: #222222;
+    color: #fff;
+}
+
 .shop-anywhere-section {
     padding: 4rem 0;
 }
 
 .shop-anywhere-item {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     overflow: hidden;
-    border-radius: 5px;
 }
 
 .shop-anywhere-item img {
     width: 100%;
-    height: 250px;
+    height: auto;
     object-fit: cover;
     transition: all 0.5s ease;
 }
@@ -558,6 +586,21 @@ img {
     padding: 1rem;
     text-align: center;
     font-size: 1.25rem;
+}
+.shop-anywhere-featured img {
+    height: auto; /* Ajuste conforme necessário */
+    object-fit: cover;
+    width: 100%;
+}
+
+.shop-anywhere-item {
+    text-align: center;
+}
+
+.shop-anywhere-item img {
+    height: auto; /* Ajuste conforme necessário */
+    object-fit: cover;
+    width: 100%;
 }
 
 /* Avaliações */
@@ -1383,7 +1426,7 @@ img {
 
 .banner-section .carousel-item .banner-bg {
     object-fit: cover;
-    height: 600px;
+    height: 800px;
     opacity: 0.7;
 }
 .banner-section .carousel-caption {
@@ -1404,6 +1447,297 @@ img {
     background-color: #fff;
     color: #000;
     border: 1px solid #000;
+}
+
+/* Estilo geral da navbar */
+.navbar {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Branding (logotipo) */
+.site-branding {
+    margin-right: 30px;
+}
+
+.site-title a {
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.site-title a:hover {
+    color: #ff6200; /* Cor laranja ao passar o mouse, como no "HONOR" */
+}
+
+/* Ícone no logotipo (opcional, adicione um span com classe se desejar) */
+.site-title a::before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff6200" width="24px" height="24px"><circle cx="12" cy="12" r="6"/></svg>');
+    margin-right: 8px;
+}
+
+/* Menu de navegação */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 5px 0;
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ff6200;
+}
+
+/* Botão de toggler (mobile) */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Área à direita (pesquisa e carrinho) */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-search,
+.header-cart {
+    margin-left: 20px;
+}
+
+.search-form {
+    display: none; /* Esconde o formulário de pesquisa tradicional */
+}
+
+.header-search .search-icon {
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+}
+
+.header-search .search-icon:hover {
+    color: #ff6200;
+}
+
+.header-cart-link {
+    color: #000;
+    text-decoration: none;
+    position: relative;
+}
+
+.header-cart-link .fas {
+    font-size: 20px;
+}
+
+.header-cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff6200;
+    color: #fff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.header-cart-link:hover {
+    color: #ff6200;
+}
+
+/* section gallery */
+.image-gallery-section {
+    padding: 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#imageGalleryCarousel {
+    position: relative;
+    overflow: hidden;
+}
+
+#imageGalleryCarousel .carousel-item {
+    display: flex;
+}
+
+#imageGalleryCarousel .gallery-item img {
+    max-width: 100%;
+    width: 100%;
+    height: 300px;
+    border-radius: 0;
+    object-fit: cover;
+}
+#imageGalleryCarousel .carousel-inner {
+    height: 300px;
+}
+
+#imageGalleryCarousel .carousel-control-prev,
+#imageGalleryCarousel .carousel-control-next {
+    width: 5%;
+}
+
+#imageGalleryCarousel .carousel-control-prev-icon,
+#imageGalleryCarousel .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.product-single .accordion {
+    background: transparent !important;
+}
+.product-single .accordion-item {
+    border-bottom: solid 0.1rem !important;
+}
+.product-single .accordion-item {
+    border: none !important;
+    background: transparent;
+    border-bottom: solid 0.1rem !important;
+}
+.product-single .accordion-button  {
+    font-size: 2.5rem !important;
+    text-transform: uppercase;
+    background-color: transparent;
+}
+
+
+
+
+
+.custom-accordion {
+    background-color: transparent;
+    border: none;
+}
+
+.custom-accordion-item {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.custom-accordion-header {
+    margin: 0;
+}
+
+.custom-accordion-button {
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.custom-accordion-button::after {
+    content: '\f078'; /* Ícone de chevron-down do Font Awesome */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.custom-accordion-button.collapsed::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.custom-accordion-button:hover {
+    background-color: #e9ecef;
+}
+
+.custom-accordion-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.custom-accordion-collapse {
+    display: none;
+}
+
+.custom-accordion-collapse.show {
+    display: block;
+}
+
+.custom-accordion-body {
+    padding: 15px;
+    background-color: #fff;
+}
+
+
+
+
+
+/* Responsividade */
+@media (max-width: 991px) {
+    .navbar-nav {
+        margin-top: 10px;
+    }
+
+    .header-right {
+        margin-top: 10px;
+    }
 }
 
 /* Responsividade */
@@ -1457,6 +1791,17 @@ img {
 }
 
 @media (max-width: 767.98px) {
+    .navbar-brand img.custom-logo {
+        width: 190px;
+    }
+    .banner-section .carousel-item .banner-bg {
+        object-fit: cover;
+        height: auto;
+        opacity: 0.7;
+    }
+    section.destaque_1-section {
+        margin-bottom: 20px;
+    }
     .top-bar {
         display: none;
     }

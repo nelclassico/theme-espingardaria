@@ -1,0 +1,38 @@
+/*
+
+Theme Name: Theme Espingardaria
+
+Theme URI: https://espingardaria.com.br
+
+Author: Manus AI
+
+Author URI: https://espingardaria.com.br
+
+Description: Tema personalizado para loja de armas e acessórios, com suporte a catálogo de produtos.
+
+Version: 3.0
+
+Requires at least: 5.9
+
+Requires PHP: 7.4
+
+License: GNU General Public License v2 or later
+
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Text Domain: theme-espingardaria
+
+Tags: e-commerce, bootstrap, responsive, dark, custom-colors
+
+
+
+Este tema foi desenvolvido exclusivamente para Espingardaria, seguindo o design fornecido.
+
+*/
+
+
+
+/* Importações de estilos */
+
+@import url('assets/css/style.css');
+
